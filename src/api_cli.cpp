@@ -11,9 +11,8 @@ void handle_get_user_activity(const char *username) {
 }
 void handle_args_command(const int argc, const char *argv[]) {
     if(argc == 1 || argc > 2) {
-        std::cout   << "Invalid command.\n"
-                    << "    Usage:      <username>\n"
-                    << "    Example:    kamranahmedse\n";
+        std::cout   << "Usage:      " << argv[0] << " <username>\n"
+                    << "Example:    " << argv[0] << " kamranahmedse\n";
         return;
     }
     handle_get_user_activity(argv[1]);
