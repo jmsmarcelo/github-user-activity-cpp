@@ -30,7 +30,7 @@ void print_activity(const Activity &activity) {
         std::string commit = " commit";
         if(activity.commits > 1) commit += "s";
         msg +=  "Pushed " + std::to_string(activity.commits) + commit +
-                " in " + activity.repo;
+                " to " + activity.repo;
     } else if(activity.type == "WatchEvent") {
         msg +=  "Starred " + activity.repo;
     } else if(activity.type == "IssueCommentEvent") {
