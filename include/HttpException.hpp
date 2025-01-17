@@ -6,9 +6,9 @@
 
 class HttpException: public std::exception {
     private:
-        const char *msg;
+        std::string message;
     public:
-        explicit HttpException(const char *);
+        explicit HttpException(const std::string&);
         const char* what() const noexcept override;
 };
 
