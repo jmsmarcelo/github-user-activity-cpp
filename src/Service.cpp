@@ -2,12 +2,12 @@
 #include "../include/Service.hpp"
 
 void Service::init_api() {
-    ApiClient.init_https();
+    apiClient.init_https();
 }
 std::vector<Activity> Service::get_user_activity(const std::string &username) {
     std::vector<Activity> activities;
     std::smatch match;
-    for(const auto &event: ApiClient.get_user_events(username)) {
+    for(const auto &event: apiClient.get_user_events(username)) {
         Activity activity{};
         if(std::regex_search(event, match, std::regex(R"::("type":"(.*?)",".*?"repo":.*?"name":"(.*?)",")::"))) {
             activity.type = match.str(1);

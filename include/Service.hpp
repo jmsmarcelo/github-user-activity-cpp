@@ -11,7 +11,7 @@ struct Activity {
 };
 class Service {
     private:
-        ApiClient ApiClient;
+        ApiClient apiClient;
     public:
         void init_api();
         std::vector<Activity> get_user_activity(const std::string &);
