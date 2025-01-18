@@ -1,10 +1,10 @@
 #include <iostream>
 #include <regex>
 #include "../include/api_cli.hpp"
-#include "../include/Service.hpp"
+#include "../include/ApiService.hpp"
 #include "../include/HttpException.hpp"
 
-Service service;
+ApiService service;
 std::string capitalize(const std::string &str) {
     if(str.empty()) return str;
     std::string result = str;
@@ -23,9 +23,18 @@ void print_activity(const Activity &activity) {
     } else if(activity.type == "IssuesEvent") {
         msg +=  capitalize(activity.action) + " a issue in " +
                 activity.repo;
+    } else if(activity.type == "IssueCommentEvent") {
+        msg +=  capitalize(activity.action) + " a comment on an issue in "
+                + activity.repo;
     } else if(activity.type == "PullRequestEvent") {
         msg +=  capitalize(activity.action) + " a pull request in " +
                 activity.repo;
+    } else if(activity.type == "PullRequestReviewEvent") {
+        msg +=  capitalize(activity.action) + " a pull request review in "
+                + activity.repo;
+    } else if(activity.type == "PullRequestReviewCommentEvent") {
+        msg +=  capitalize(activity.action) + " a pull request review comment in "
+                + activity.repo;
     } else if(activity.type == "PushEvent") {
         std::string commit = " commit";
         if(activity.commits > 1) commit += "s";
@@ -33,9 +42,6 @@ void print_activity(const Activity &activity) {
                 " to " + activity.repo;
     } else if(activity.type == "WatchEvent") {
         msg +=  "Starred " + activity.repo;
-    } else if(activity.type == "IssueCommentEvent") {
-        msg +=  capitalize(activity.action) + " a comment on an issue in "
-                + activity.repo;
     } else {
         msg +=  "Performed an unknown activity in " + activity.repo;
     }

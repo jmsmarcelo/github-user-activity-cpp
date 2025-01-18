@@ -9,7 +9,7 @@ struct Activity {
     std::string type, repo, action, ref_type;
     int commits {0};
 };
-class Service {
+class ApiService {
     private:
         ApiClient apiClient;
     public:

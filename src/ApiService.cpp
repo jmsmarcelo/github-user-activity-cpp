@@ -1,10 +1,10 @@
 #include <regex>
-#include "../include/Service.hpp"
+#include "../include/ApiService.hpp"
 
-void Service::init_api() {
+void ApiService::init_api() {
     apiClient.init_https();
 }
-std::vector<Activity> Service::get_user_activity(const std::string &username) {
+std::vector<Activity> ApiService::get_user_activity(const std::string &username) {
     std::vector<Activity> activities;
     std::smatch match;
     for(const auto &event: apiClient.get_user_events(username)) {
