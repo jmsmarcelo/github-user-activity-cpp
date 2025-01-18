@@ -1,6 +1,6 @@
 # GitHub User Activity
 
-This project is my solution to the [GitHub User Activity](https://roadmap.sh/projects/github-user-activity) challenge by Roadmap.sh.
+This project is [my solution](https://roadmap.sh/projects/github-user-activity/solutions?u=66f7e663c45e253cb00d6b67) to the [GitHub User Activity](https://roadmap.sh/projects/github-user-activity) challenge by Roadmap.sh.
 It demonstrates how to use C++ to build a simple and efficient command-line tool to fetch and display recent GitHub user activity.
 
 ## 🧑‍💻 What did I learn from this project?
